@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery插件</title>
+<style>
+body,html{width:100%;min-width:700px;height:100%;border:none;margin:0;padding:25px;box-sizing:border-box}body .display-flex,html .display-flex{display:flex}body .display-flex .flex,html .display-flex .flex{flex:1}body .items,html .items{padding:80px 25px 50px;box-sizing:border-box;border-bottom:1px dashed #eee;position:relative}body .items .demo-show-dialog,html .items .demo-show-dialog{text-decoration:none;display:inline-block;padding:8px 10px;background:#aa0;border-radius:5px;font-size:15px;color:#eee}body .items .demo-show-dialog:active,html .items .demo-show-dialog:active{box-shadow:inset 0 2px 5px rgba(0,0,0,.2)}body .items:before,html .items:before{content:attr(data-title);font-size:12px;background:#ccc;display:inline-block;position:absolute;top:30px;left:25px;color:#fff;padding:2px 5px;border-radius:3px;white-space: nowrap;}
+</style>
+</head>
+<body>
+<link rel='stylesheet' href='assets/css/jQuery.carousel.css' type='text/css'>    
+<script type="text/javascript" src="http://res.42du.cn/vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/jQuery.carousel.js"></script>
+   
+<h2>jQuery.carousel.js</h2>
+<p>多功能jquery走马灯插件</p>
+<div class="display-flex">
+    <div class="items flex" data-title="显示导航箭头">
+            <div class="carousel demo-1">
+                <div class="carousel-item"><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div>
+
+    <div class="items flex" data-title="显示导航焦点">
+            <div class="carousel demo-2">
+                <div class="carousel-item"><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div> 
+    
+    <div class="items flex" data-title="纵向滚动，自定义箭头显示，自定义焦点位置">
+            <div class="carousel demo-3">
+                <div class="carousel-item"><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div>  
+</div>   
+   
+<div class="display-flex">
+    <div class="items flex" data-title="设置自动轮播">
+            <div class="carousel demo-4">
+                <div class="carousel-item"><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div>
+
+    <div class="items flex" data-title="支持轮播进入和离开时回调">
+            <div class="carousel demo-5">
+                <div class="carousel-item current"><h2>Pic One</h2><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><h2>Pic Two</h2><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><h2>Pic Three</h2><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div> 
+    
+    <div class="items flex" data-title="可设置焦点为文字标题">
+            <div class="carousel demo-6">
+                <div class="carousel-item"><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div>  
+</div>
+
+<div class="display-flex">
+    <div class="items flex" data-title="自定义宽高">
+            <div class="carousel demo-7">
+                <div class="carousel-item"><img src="assets/images/img1.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img2.jpg"></div>
+                <div class="carousel-item"><img src="assets/images/img3.jpg"></div>
+            </div>
+    </div>
+    <div class="items flex" data-title="全屏轮播">
+            <a href="fullscreen.html" target="_blank">点击链接，查看全屏轮播</a>
+     </div>   
+  
+</div>  
+<style>
+.demo-5 .carousel-item h2{
+    font-size: 25px;font-weight: normal;opacity: 0;transform: scale(.1);-webkit-transform: scale(.1);margin: 0;
+    transition: all .24s ease 0s;-webkit-transition: all .24s ease 0s;
+}
+.demo-5 .carousel-item.current h2{
+    opacity: 1;transform: scale(1);-webkit-transform: scale(1);
+}
+</style>
+    
+<script>
+$('.demo-7').carousel({
+    size:[800,350],
+    arrow:{
+        show:true
+    },
+    trigger:{
+        show:true,
+        position: 'bottom'
+    }
+});
+
+$('.demo-6').carousel({
+    size:[300,200],
+    direction: 'y',
+    arrow:{
+        show:true,
+        html: ["↓", "↑"]
+    },
+    trigger:{
+        show:true,
+        position: 'bottom',
+        type: 'title',
+        title: ['Pic One', 'Pic Two', 'Pic Three']
+    },
+    autoPlay: true,
+    interval: 3000,
+    speed: 500 
+});
+    
+$('.demo-5').carousel({
+    size:[300,200],
+    arrow:{
+        show:true
+    },
+    onLeave: function (index) {
+        $('.demo-5 .carousel-item').eq(index).removeClass('current');
+    },
+    onEnter: function (index) {
+        $('.demo-5 .carousel-item').eq(index).addClass('current');
+    }
+});  
+    
+$('.demo-4').carousel({
+    size:[300,200],
+    arrow:{
+        show:true
+    },
+    autoPlay: true,
+    interval: 3000,
+    speed: 500 
+});      
+    
+$('.demo-3').carousel({
+    size:[300,200],
+    direction: 'y',
+    trigger:{
+        show:true,
+        position: 'top'
+    },
+    arrow:{
+        show:true,
+        html: ["↓", "↑"]
+    }
+});
+    
+$('.demo-2').carousel({
+    size:[300,200],
+    trigger:{
+        show:true
+    }
+});  
+    
+$('.demo-1').carousel({
+    size:[300,200],
+    arrow:{
+        show:true
+    }
+});          
+</script>
+
+</body>
+</html>

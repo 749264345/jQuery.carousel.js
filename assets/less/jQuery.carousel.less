@@ -1,0 +1,59 @@
+.carousel{
+	position: relative;overflow: hidden;
+	.table,.table-cell{width:100%;height:100%;text-align:center;vertical-align:middle;display:table;}
+	.table-cell{display:table-cell;}
+	
+	.carousel-wrap{height: 100%;width:999999px;}
+	.carousel-item{
+		background-color:#e0e0e0;height: 100%;position:absolute;overflow:hidden;user-select:none;-moz-user-select:none;-webkit-user-select:none;cursor:default;
+		img{max-width: 100%;}
+	}
+	
+	.carousel-arrow{
+		position: absolute;top: 50%;display: inline-block; z-index:2;margin-top: -40px;display: inline-block;width:40px;height:80px;line-height:80px;
+		text-align:center;background:rgba(0,0,0,0.35);cursor:pointer;box-shadow: 0 0 15px rgba(0,0,0,.2);color: #fff;font-size: 25px;
+		&.carousel-arrow-left{
+			left: 0;border-radius: 0 10px 10px 0;
+		}
+		&.carousel-arrow-right{
+			right: 0;border-radius: 10px 0 0 10px;
+		}
+		.icon-arrow-left{
+			width:40px;height:80px;display: inline-block;
+			background: url(../images/icon-left.png) no-repeat center center;background-size: 35px auto;
+		}
+		.icon-arrow-right{
+			width:40px;height:80px;display: inline-block;
+			background: url(../images/icon-right.png) no-repeat center center;background-size: 35px auto;
+		}
+	}
+	
+	.carousel-trigger{
+		cursor:pointer;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;-ms-transition:all 0.3s;-o-transition:all 0.3s;transition:all 0.3s;
+		position:absolute;text-align:center;z-index:2;padding:20px;box-sizing:border-box;display:inline-block;
+		&.top{top:0px;left:0;width:100%;}
+		&.bottom{bottom:0px;left:0;width:100%;}
+		&.left{left:0px;}
+		&.right{right:0px;}
+		&.left,&.right{top:0;height:100%;display: flex;flex-direction: column;justify-content: center;}
+
+		&.dots{
+			.trigger{
+				width:12px;height:12px;border-radius:50%;margin:5px;display:inline-block;background:rgba(255,255,255,0.5);box-sizing:border-box;
+				&.current{background:#007cc1;}
+			}
+		}
+		&.title{
+			padding:0;bottom:0;display:box;display:-webkit-box;width:100%;height:35px;line-height:35px;
+			.trigger{
+				background:rgba(255,255,255,0.5);box-sizing:border-box;
+				font-size:13px;color:#555;box-flex:1;-webkit-box-flex:1;display:block;box-sizing:border-box;padding:0 15px;width:100%;
+				white-space:nowrap;overflow:hidden;text-overflow:ellipsis;height:auto;margin:0;text-align:center;border-radius:0;
+				&.current{color:#fff;background:#007cc1;}
+			}
+		}
+	}
+}
+
+
+
